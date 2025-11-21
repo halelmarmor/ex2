@@ -24,19 +24,29 @@ int main() {
 
         switch (option) {
             // TASK 1: Ducky's Unity Game
-            case 1:
-                int PositiveNumber;
-                do {
+            case 1: {
+                int PositiveNumber, count =0;
+                printf("please enter a positive number:\n");
+                scanf("%d",&PositiveNumber);
+                while (PositiveNumber < 1) {
+                    printf("Invalid number, please try again\n");
                     printf("please enter a positive number:\n");
                     scanf("%d",&PositiveNumber);
-                    if (PositiveNumber < 1)
-                        printf("Invalid number, please try again\n");
-                } while (PositiveNumber >= 1);
-                    scanf("%d, PositiveNumber&1");
-                    printf("Ducky earns %d corns");
+                }
+                while (PositiveNumber > 0) {
+                    PositiveNumber = PositiveNumber & (PositiveNumber - 1);
+                    count ++;
+                }
+                printf("Ducky earns %d corns", count);
+            }
                 break;
             // TASK 2: The Memory Game
-            case 2:
+            case 2: {
+                int DucksNumber;
+                printf("please enter the number of ducks:\n");
+                scanf("%d",&DucksNumber);
+                printf("you entered %d ducks", DucksNumber);
+            }
                 break;
             // TASK 3: Professor Pat's Power Calculation
             case 3:
@@ -55,7 +65,7 @@ int main() {
                 printf("Invalid option, please try again\n");
                 break;
         }
-    }while (1> option || option >7);
+    }while (1> option || option >6);
 
 
 
