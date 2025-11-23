@@ -97,7 +97,7 @@ int main() {
                         power = power * number;
                     }
                 }
-                printf("your power is:%d\n", power);
+                printf("your power is: %d\n", power);
             }
                 break;
                 // TASK 4: The Duck Parade
