@@ -38,7 +38,7 @@ int main() {
                     PositiveNumber = PositiveNumber & (PositiveNumber - 1);
                     count ++;
                 }
-                printf("Ducky earns %d corns", count);
+                printf("Ducky earns %d corns\n", count);
             }
                 break;
                 // TASK 2: The Memory Game
@@ -97,37 +97,47 @@ int main() {
                         power = power * number;
                     }
                 }
-                printf("your power is:%d", power);
+                printf("your power is:%d\n", power);
             }
-                    break;
-            // TASK 4: The Duck Parade
+                break;
+                // TASK 4: The Duck Parade
             case 4: {
                 int NumberOfDucks;
                 printf("please enter number of ducks:\n");
                 scanf("%d",&NumberOfDucks);
+
                 while (NumberOfDucks < 0) {
                     printf("Invalid number, please try again\n");
                     scanf("%d",&NumberOfDucks);
                 }
                 if (NumberOfDucks == 0) {
-                    break; //משהו לא עובד
+                    option=0;
+
                 } else {
-                    for (int i = 0; i<NumberOfDucks; i++) {
+                    for (int i = 0; i<NumberOfDucks/10; i++) {
+                        printf("   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t\n");
+                        printf("__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t");
+                        printf("__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t\n");
+                        printf("\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t");
+                        printf("\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t\n");
+
+                    }
+                    for (int i = 0; i<NumberOfDucks%10; i++) {
                         printf("   _\t\t");
                     }
-                    for (int i = 0; i<NumberOfDucks; i++) {
+                    printf("\n");
+                    for (int i = 0; i<NumberOfDucks%10; i++) {
                         printf("__(o)>\t\t");
                     }
-                    for (int i = 0; i<NumberOfDucks; i++) {
+                    printf("\n");
+                    for (int i = 0; i<NumberOfDucks%10; i++) {
                         printf("\\___)\t\t");
                     }
-                    if ((NumberOfDucks+1)%10 == 0) {
-                        printf("\n");
-                    }
+                    printf("\n");
                 }
             }
                 break;
-            // TASK 5: The Mystery of the Repeated Digits
+                // TASK 5: The Mystery of the Repeated Digits
             case 5: {
                 int Digit;
                 printf("please enter number\n");
@@ -136,8 +146,21 @@ int main() {
                     printf("Invalid number, please try again\n");
                     scanf("%d",&Digit);
                 }
-                while (Digit > 1) {
-                    printf("%d appears more than once!", Digit);
+                while (Digit > 0) {
+                    int CurrentDigit = Digit%10;
+                    int RestDigit = Digit/10;
+                    int RepeatDigit = 0;
+                    while (RestDigit > 0) {
+                        if (RestDigit%10 == CurrentDigit) {
+                            RepeatDigit = 1;
+                            break;
+                        }
+                        RestDigit /= 10;
+                    }
+                    if (RepeatDigit) {
+                        printf("%d appears more than once!\n", CurrentDigit);
+                    }
+                        Digit /= 10;
                 }
             }
                 break;
@@ -149,7 +172,7 @@ int main() {
                 printf("Invalid option, please try again\n");
                 break;
         }
-    }while (1> option || option >6);
+    }while (option!=6);
 
     // dont forget through all the necessary parts to validate invalid input.
 
