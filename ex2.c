@@ -27,15 +27,15 @@ int main() {
         switch (option) {
             // TASK 1: Ducky's Unity Game
             case 1: {
-                int PositiveNumber, count =0;
+                int positiveNumber, count =0;
                 printf("please enter a positive number:\n");
-                scanf("%d",&PositiveNumber);
-                while (PositiveNumber < 1) {
+                scanf("%d",&positiveNumber);
+                while (positiveNumber < 1) {
                     printf("Invalid number, please try again\n");
-                    scanf("%d",&PositiveNumber);
+                    scanf("%d",&positiveNumber);
                 }
-                while (PositiveNumber > 0) {
-                    PositiveNumber = PositiveNumber & (PositiveNumber - 1);
+                while (positiveNumber > 0) {
+                    positiveNumber = positiveNumber & (positiveNumber - 1);
                     count ++;
                 }
                 printf("Ducky earns %d corns\n", count);
@@ -43,16 +43,16 @@ int main() {
                 break;
                 // TASK 2: The Memory Game
             case 2: {
-                int DucksNumber;
+                int ducksNumber;
                 long quak, quaks=0;
                 printf("please enter the number of ducks:\n");
-                scanf("%d",&DucksNumber);
-                while (DucksNumber < 1) {
+                scanf("%d",&ducksNumber);
+                while (ducksNumber < 1) {
                     printf("Invalid number, please try again\n");
-                    scanf("%d",&DucksNumber);
+                    scanf("%d",&ducksNumber);
                 }
-                printf("you entered %d ducks\n", DucksNumber);
-                for (int i = 0; i<DucksNumber; i++) {
+                printf("you entered %d ducks\n", ducksNumber);
+                for (int i = 0; i<ducksNumber; i++) {
                     printf("duck %d do QUAK? 1 for yes, 0 for no\n", i+1);
                     scanf("%ld",&quak);
                     while (quak !=0 && quak !=1) {
@@ -63,7 +63,7 @@ int main() {
                         quaks |= (1ull << i);
                     }
                 }
-                for (int i = 0; i<DucksNumber; i++) {
+                for (int i = 0; i<ducksNumber; i++) {
                     if (quaks & (1ull << i)) {
                         printf("duck number %d do Quak\n", i+1);
                     } else {
@@ -102,19 +102,19 @@ int main() {
                 break;
                 // TASK 4: The Duck Parade
             case 4: {
-                int NumberOfDucks;
+                int numberOfDucks;
                 printf("please enter number of ducks:\n");
-                scanf("%d",&NumberOfDucks);
+                scanf("%d",&numberOfDucks);
 
-                while (NumberOfDucks < 0) {
+                while (numberOfDucks < 0) {
                     printf("Invalid number, please try again\n");
-                    scanf("%d",&NumberOfDucks);
+                    scanf("%d",&numberOfDucks);
                 }
-                if (NumberOfDucks == 0) {
+                if (numberOfDucks == 0) {
                     option=0;
 
                 } else {
-                    for (int i = 0; i<NumberOfDucks/10; i++) {
+                    for (int i = 0; i<numberOfDucks/10; i++) {
                         printf("   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t   _\t\t\n");
                         printf("__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t");
                         printf("__(o)>\t\t__(o)>\t\t__(o)>\t\t__(o)>\t\t\n");
@@ -122,15 +122,15 @@ int main() {
                         printf("\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t\\___)\t\t\n");
 
                     }
-                    for (int i = 0; i<NumberOfDucks%10; i++) {
+                    for (int i = 0; i<numberOfDucks%10; i++) {
                         printf("   _\t\t");
                     }
                     printf("\n");
-                    for (int i = 0; i<NumberOfDucks%10; i++) {
+                    for (int i = 0; i<numberOfDucks%10; i++) {
                         printf("__(o)>\t\t");
                     }
                     printf("\n");
-                    for (int i = 0; i<NumberOfDucks%10; i++) {
+                    for (int i = 0; i<numberOfDucks%10; i++) {
                         printf("\\___)\t\t");
                     }
                     printf("\n");
@@ -139,28 +139,28 @@ int main() {
                 break;
                 // TASK 5: The Mystery of the Repeated Digits
             case 5: {
-                int Digit;
+                int digit;
                 printf("please enter number\n");
-                scanf("%d",&Digit);
-                while (Digit < 1) {
+                scanf("%d",&digit);
+                while (digit < 1) {
                     printf("Invalid number, please try again\n");
-                    scanf("%d",&Digit);
+                    scanf("%d",&digit);
                 }
-                while (Digit > 0) {
-                    int CurrentDigit = Digit%10;
-                    int RestDigit = Digit/10;
-                    int RepeatDigit = 0;
-                    while (RestDigit > 0) {
-                        if (RestDigit%10 == CurrentDigit) {
-                            RepeatDigit = 1;
+                while (digit > 0) {
+                    int currentDigit = digit%10;
+                    int restDigit = digit/10;
+                    int repeatDigit = 0;
+                    while (restDigit > 0) {
+                        if (restDigit%10 == currentDigit) {
+                            repeatDigit = 1;
                             break;
                         }
-                        RestDigit /= 10;
+                        restDigit /= 10;
                     }
-                    if (RepeatDigit) {
-                        printf("%d appears more than once!\n", CurrentDigit);
+                    if (repeatDigit) {
+                        printf("%d appears more than once!\n", currentDigit);
                     }
-                        Digit /= 10;
+                        digit /= 10;
                 }
             }
                 break;
